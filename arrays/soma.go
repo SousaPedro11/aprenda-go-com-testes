@@ -1,9 +1,15 @@
 package arrays
 
-func Soma(numeros []int) int {
-	soma := 0
+func Soma(numeros []int) (soma int) {
 	for _, numero := range numeros {
 		soma += numero
 	}
-	return soma
+	return
+}
+
+func SomaTudo(numerosParaSomar ...[]int) (somas []int) {
+	for _, numeros := range numerosParaSomar {
+		somas = append(somas, Soma(numeros))
+	}
+	return
 }
