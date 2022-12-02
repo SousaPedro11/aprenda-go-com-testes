@@ -3,7 +3,6 @@ name: Test
 on: [push, pull_request]
 
 jobs:
-
   test:
     strategy:
       matrix:
@@ -15,9 +14,9 @@ jobs:
         uses: actions/setup-go@v3.4.0
         with:
           go-version: ${{ matrix.go-version }}
+
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Change workdir
-        run: go work use .
+
       - name: Run Test
         run: go test -v ./...
